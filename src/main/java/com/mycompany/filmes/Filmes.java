@@ -4,17 +4,23 @@
  */
 package com.mycompany.filmes;
 
+//Importando bibliotecas java JOptionPane e ImageIcon para desenvolvimento do projeto
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+//============================================================
 
 /**
  *
  * @author Admin
  */
+//Declarando classe Filmes e herdando de JFrame
 public class Filmes extends javax.swing.JFrame {
-
+//============================================================
     /**
      * Creates new form Filmes
      */
+    
+    //Abaixo todo o método construtor
     public Filmes() {
         initComponents();
     }
@@ -66,6 +72,11 @@ public class Filmes extends javax.swing.JFrame {
         });
 
         cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,29 +131,57 @@ public class Filmes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //============================================================
+    //Declarando o método para o acionamento do botão OK com o metodo ActionEvent
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        String escolhas = "";
-        if (check1.isSelected() ==true)
-            escolhas = escolhas + check1.getText();
-        if (check2.isSelected() ==true)
-            escolhas = escolhas + check2.getText();
-        if (check3.isSelected() ==true)
-            escolhas = escolhas + check3.getText();
-        if (check4.isSelected() ==true)
-            escolhas = escolhas + check4.getText();
-        if (check5.isSelected() ==true)
-            escolhas = escolhas + check5.getText();
-        if (check6.isSelected() ==true)
-            escolhas = escolhas + check6.getText();
-        if (check7.isSelected() ==true)
-            escolhas = escolhas + check7.getText();
-        JOptionPane.showMessageDialog(null, "Você escolheu: "+escolhas);
+        
+        //Importando imagem dos filmes para exibição nas CheckBoxes
+        ImageIcon acao = new ImageIcon("acao.jpg");
+        ImageIcon comedia = new ImageIcon("comedia.jpg");
+        ImageIcon comediaromantica = new ImageIcon("comediaromantica.jpg");
+        ImageIcon ficcao = new ImageIcon("ficcao.jpg");
+        ImageIcon romance = new ImageIcon("romance.jpg");
+        ImageIcon suspense = new ImageIcon("suspense.jpg");
+        ImageIcon terror = new ImageIcon("terror.jpg");
+        //============================================================
+        //Definição de ação com if else para a ação de cada marcação da lista utilizando a biblioteca JOptionPane
+        //para interface gráfica e exibição de imagem com o parametro OK_OPTION
+        if (check1.isSelected() ==true) {
+            JOptionPane.showMessageDialog(null, "","No Limite do Amanhã", JOptionPane.OK_OPTION, acao);
+        } else
+            if  (check2.isSelected() ==true) {
+                JOptionPane.showMessageDialog(null, "","Free Guy", JOptionPane.OK_OPTION, comedia);
+            } else
+                if (check3.isSelected() ==true) {
+                    JOptionPane.showMessageDialog(null, "","A Barraca do Beijo", JOptionPane.OK_OPTION, comediaromantica);
+                } else
+                    if (check4.isSelected() ==true) {
+                        JOptionPane.showMessageDialog(null, "","Tomorrowland", JOptionPane.OK_OPTION, ficcao);
+                    } else
+                        if (check5.isSelected() ==true) {
+                            JOptionPane.showMessageDialog(null, "","Por Lugares Incríveis", JOptionPane.OK_OPTION, romance);
+                        } else
+                            if (check6.isSelected() ==true) {
+                                JOptionPane.showMessageDialog(null, "","Um Lugar Silencioso", JOptionPane.OK_OPTION, suspense);
+                            } else
+                                if (check7.isSelected() ==true) {
+                                    JOptionPane.showMessageDialog(null, "","Invocação do Mal 3", JOptionPane.OK_OPTION, terror);
+                                }
+        //======================================================================================================================
+        
     }//GEN-LAST:event_okActionPerformed
 
+    //Método para definir a ação do botão cancelar, com o método ActionEvent
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        //Definindo a ação para quando pressionado, encerrar o programa por inteiro
+        System.exit(0);
+        //============================================================
+    }//GEN-LAST:event_cancelarActionPerformed
+//============================================================
     /**
      * @param args the command line arguments
      */
+    //Pacote de extensão do núcleo java
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -174,6 +213,7 @@ public class Filmes extends javax.swing.JFrame {
             }
         });
     }
+    //============================================================
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton cancelar;
